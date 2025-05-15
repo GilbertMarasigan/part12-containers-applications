@@ -1,0 +1,7 @@
+Script started on Thu May 15 19:27:47 2025
+[1m[7m%[27m[1m[0m                                                                                                              [0m[27m[24m[Jgilbert@Gilberts-MacBook-Pro script-answers % [K[?2004hddocker run -it ubuntu bash[?2004l
+[?2004h]0;root@83913b0974df: /root@83913b0974df:/# mkdir /user  r/src/app
+[?2004l[?2004h]0;root@83913b0974df: /root@83913b0974df:/# touch /usr/src/app/ji  index.js
+[?2004l[?2004h]0;root@83913b0974df: /root@83913b0974df:/# [Kls
+[?2004l[0m[01;36mbin[0m  [01;34mboot[0m  [01;34mdev[0m  [01;34metc[0m  [01;34mhome[0m  [01;36mlib[0m  [01;34mmedia[0m  [01;34mmnt[0m  [01;34mopt[0m  [01;34mproc[0m  [01;34mroot[0m  [01;34mrun[0m  [01;36msbin[0m  [01;34msrv[0m  [01;34msys[0m  [30;42mtmp[0m  [01;34musr[0m  [01;34mvar[0m
+[?2004h]0;root@83913b0974df: /root@83913b0974df:/# cd
