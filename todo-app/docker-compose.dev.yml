@@ -1,0 +1,45 @@
+services:
+  frontend:
+    image: todo-front-dev
+    container_name: todo-frontend
+    volumes:
+      - ./todo-frontend:/usr/src/app
+    working_dir: /usr/src/app
+
+  backend:
+    image: todo-back-dev
+    container_name: todo-backend
+    volumes:
+      - ./todo-backend:/usr/src/app
+    environment:
+      - REDIS_URL=redis://redis:6379
+      - MONGO_URL=mongodb://root:example@mongo:27017/the_database?authSource=admin
+    depends_on:
+      - mongo
+      - redis
+
+  mongo:
+    image: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_INITDB_DATABASE: the_database
+    volumes:
+      - ./mongo_data:/data/db
+
+  redis:
+    image: redis
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes:
+      - ./redis_data:/data
+
+  nginx:
+    image: nginx:1.20.1
+    container_name: reverse-proxy
+    volumes:
+      - ./nginx.dev.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - 8080:80
+    depends_on:
+      - frontend
+      - backend
